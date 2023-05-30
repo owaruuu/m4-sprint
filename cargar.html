@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="assets/js/cargar.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Buscador Recetas Comida</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -29,15 +30,13 @@
         </div>
     </nav>
 
-    <main class="mt-5 container-lg">
+    <main id="botones" class="mt-5 container-lg">
         <h2 class="text-center fs-1">
             <button 
-                class="btn btn-outline-primary" type="button" id="clearLista"
-            >Borrar Todo</button>
-            | Lista del <span id="desde">XX</span> a <span id="hasta">XX</span> | 
+                class="btn btn-outline-primary" type="button" id="clearLista" hidden>Borrar Todo</button>
+            <!-- | Lista del <span id="desde">XX</span> a <span id="hasta">XX</span> |  -->
             <button 
-                class="btn btn-outline-primary" type="button" id="getLista"
-            >Cargar</button>
+                class="btn btn-outline-primary" type="button" id="getLista">Cargar</button>
         </h2>
         <div id="resultado">
             
@@ -61,7 +60,5 @@
     </div>
     
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/cargar.js"></script>
-    <script src="assets/js/helpers.js"></script>
 </body>
 </html>

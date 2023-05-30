@@ -35,6 +35,21 @@ function GetPokemon(filter) {
 	});
 }
 
+function GetPokemons(url){
+  return new Promise((resolve, reject) => {
+		fetch(url).then((response) => {
+			switch (response.status) {
+				case 200:
+					resolve(response.json());
+					break;
+				default:
+					reject(response.status);
+					break;
+			}
+		});
+	});
+}
+
 function CreateChart(data) {
 	const ctx = document.getElementById("myChart");
   ctx.innerHTML = ""; 
@@ -102,4 +117,19 @@ function CreateElement(elem, parent, value, classNames = []){
   return element;
 }
 
-export { GetPokemon, CreateChart, CreateData, CreateElement };
+function CreateBootstrapButton(value, id, parent){
+  const button = document.createElement("button");
+  parent.appendChild(button);
+  button.innerHTML = value;
+  button.setAttribute("id", id);
+  button.classList.add("btn", "btn-outline-primary");
+  return button;
+}
+
+function ToggleVisibility(element){
+  element.hasAttribute("hidden") ? element.removeAttribute("hidden") : element.setAttribute("hidden", "");
+  // element.classList.toggle("hidden");
+}
+
+
+export { GetPokemon, GetPokemons, CreateChart, CreateData, CreateElement, CreateBootstrapButton, ToggleVisibility };
