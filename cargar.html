@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Buscador Recetas Comida</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger bg-gradient p-3">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-4" href="index.html">Buscador de Pokemon</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link fs-4" href="./index.html">Buscador</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4 active" aria-current="page"  href="./cargar.html">Lista de Pokemones</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="mt-5 container-lg">
+        <h2 class="text-center fs-1">
+            <button 
+                class="btn btn-outline-primary" type="button" id="clearLista"
+            >Borrar Todo</button>
+            | Lista del <span id="desde">XX</span> a <span id="hasta">XX</span> | 
+            <button 
+                class="btn btn-outline-primary" type="button" id="getLista"
+            >Cargar</button>
+        </h2>
+        <div id="resultado">
+            
+        </div>
+    </main>
+
+    <div 
+        class="modal fade" id="modal" 
+        data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true"
+    >
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-3 font-bold"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/cargar.js"></script>
+    <script src="assets/js/helpers.js"></script>
+</body>
+</html>

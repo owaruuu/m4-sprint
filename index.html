@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="assets/js/index.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Buscador Recetas Comida</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger bg-gradient p-3">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-4" href="index.html">Buscador de Pokemon</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link fs-4 active" aria-current="page" href="./index.html">Buscador</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4" href="./cargar.html">Lista de Pokemones</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="mt-5 container-lg">
+        <h2 class="text-center fs-1">Busqueda</h2>
+        <div class="d-md-flex justify-content-md-center mt-5">
+            <div class="card col-md-4 bg-light p-5">
+                <div class="input-group mb-3">
+                    <input value="25" id="input-pokemon" type="text" class="form-control" placeholder="Por Nombre o Id" aria-label="Por Nombre"/>
+                    <button class="btn btn-outline-primary" type="button" id="getPokemon">Buscar</button>
+                </div>
+            </div>
+            <div class="col-md-4 bg-light p-1" id="resCard" >
+                <div class="card">
+                    <img src="" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title pokemon-name"></h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary pokemon-height"></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary pokemon-weight"></h6>
+                        <h6 class="card-subtitle mb-2 text-body-secondary"></h6>
+                        <ul class="list-group list-group-flush pokemon-types">
+                            <!-- <li class="list-group-item active"></li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#statsModal">
+        Launch demo modal
+    </button> -->
+
+    <div 
+        class="modal fade" id="statsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-3 font-bold">Titulo</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- data-bs-toggle="modal" data-bs-target="#modal" -->
+    
+</body>
+</html>
