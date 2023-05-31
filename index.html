@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="assets/js/index.js" defer></script>
+    <script type="module" src="./assets/js/index.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Buscador Pokemon</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -32,14 +32,14 @@
 
     <main class="mt-5 container-lg">
         <h2 class="text-center fs-1">Busqueda</h2>
-        <div class="d-md-flex justify-content-md-center mt-5">
-            <div class="card col-md-4 bg-light p-5">
+        <div class="d-md-flex flex-column justify-content-center mt-5">
+            <div class="card mx-auto  col-md-4 bg-light p-5">
                 <div class="input-group mb-3">
                     <input value="25" id="input-pokemon" type="text" class="form-control" placeholder="Por Nombre o Id" aria-label="Por Nombre"/>
                     <button class="btn btn-outline-primary" type="button" id="getPokemon">Buscar</button>
                 </div>
             </div>
-            <div class="col-md-4 bg-light p-1" id="resCard" >
+            <div class="col-md-4 mx-auto bg-light p-1" id="resCard" >
                 
             </div>
         </div>
@@ -71,7 +71,7 @@
         </div>
     </div>
     
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
 
     <!-- data-bs-toggle="modal" data-bs-target="#modal" -->
     

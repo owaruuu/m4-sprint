@@ -7,10 +7,11 @@
     <script type="module" src="assets/js/cargar.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Buscador Recetas Comida</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-
+    
     <nav class="navbar navbar-expand-lg navbar-dark bg-danger bg-gradient p-3">
         <div class="container-fluid">
             <a class="navbar-brand fs-4" href="index.html">Buscador de Pokemon</a>
@@ -30,21 +31,18 @@
         </div>
     </nav>
 
-    <main id="botones" class="mt-5 container-lg">
-        <h2 class="text-center fs-1">
-            <button 
-                class="btn btn-outline-primary" type="button" id="clearLista" hidden>Borrar Todo</button>
+    <main id="botones" class="mt-5 container-lg">    
             <!-- | Lista del <span id="desde">XX</span> a <span id="hasta">XX</span> |  -->
-            <button 
-                class="btn btn-outline-primary" type="button" id="getLista">Cargar</button>
-        </h2>
-        <div id="resultado">
-            
-        </div>
+            <button id="btn-borrar" class="btn btn-outline-primary" type="button" id="clearLista">Borrar Todo</button>
+        <button class="btn btn-outline-primary" type="button" id="getLista">Cargar</button>
+        
     </main>
+    <div id="resultado" class="row">
+            
+    </div>
 
     <div 
-        class="modal fade" id="modal" 
+        class="modal fade" id="statsModal" 
         data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true"
     >
         <div class="modal-dialog modal-dialog-scrollable">
@@ -53,12 +51,16 @@
                     <h1 class="modal-title fs-3 font-bold"></h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body"></div>
+                <div class="modal-body">
+                    <div>
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
     </div>
     
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
