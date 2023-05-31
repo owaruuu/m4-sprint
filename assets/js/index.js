@@ -1,4 +1,4 @@
-import { GetPokemon, CreatePokemonCard, CreateChart, CreateData, CreateElement } from "./helpers.js";
+import { GetPokemon, CreatePokemonCard, CreateChart, CreateData } from "./helpers.js";
 import { Pokemon } from "./pokemon.js";
 
 const url = "https://pokeapi.co/api/v2/pokemon/";
@@ -15,13 +15,6 @@ input.addEventListener("keyup", e => {
 
 const modal = document.getElementById('statsModal');  
 const modalStats = new bootstrap.Modal(modal);
-// const statsModal = document.getElementById("statsModal");
-// statsModal.addEventListener('hidden.bs.modal',() =>{
-//     const modalTitle = statsModal.querySelector('.modal-title')
-//     const modalBody = statsModal.querySelector('.modal-body')
-//     modalTitle.textContent = "";
-//     modalBody.textContent = "";
-// })
 
 //global para poder .delete() el chart anterior, es necesario per la documentacion de Chart.js
 let statsChart;
@@ -63,33 +56,3 @@ function CreatePokemon(pokemon){
 		modalStats.show();
 	});
 }
-
-
-
-// async function GetPokemon(url) {
-// 	return new Promise((resolve, reject) => {
-// 		try {
-// 			setTimeout(resolve(FetchPokemon(url)), 2000);
-// 		} catch (error) {
-// 			reject(error);
-// 		}
-// 	});
-// }
-
-// async function FetchPokemon(url){
-//     try {
-//         const response = await Fetch(url);
-//         console.log(response);
-//     } catch (error) {
-
-//     }
-// }
-
-// GetPokemon('https://pokeapi.co/api/v2/pokemon/35')
-
-// const exampleModal = document.getElementById('exampleModal')
-// exampleModal.addEventListener('show.bs.modal', event => {
-    
-//     const modalTitle = exampleModal.querySelector('.modal-title')
-//     const modalBody = exampleModal.querySelector('.modal-body')
-// })

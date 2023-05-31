@@ -1,4 +1,4 @@
-import { CreateBootstrapButton, GetPokemon, CreatePokemonCard, CreateChart, CreateData, GetPokemons, ToggleVisibility } from "./helpers.js";
+import { CreateBootstrapButton, GetPokemon, CreatePokemonCard, CreateChart, CreateData, GetPokemons} from "./helpers.js";
 import { Pokemon } from "./pokemon.js";
 
 const first20 = "https://pokeapi.co/api/v2/pokemon/";
@@ -16,32 +16,22 @@ let botonBorrar = document.getElementById("btn-borrar");
 botonBorrar.addEventListener("click", DeleteButtonClick);
 
 async function LoadButtonClick(event){
-    // event.target.setAttribute("disabled", "disabled");
     const getList = document.getElementById("getLista");
     if(getList){
         getList.remove();
     } 
-    // ToggleVisibility(event.target);
-
-    console.log("click en boton");
     
     try {
 		const response = await GetPokemons(nextUrl);
         console.log(response);
 
         nextUrl =  response.next;
-        console.log(nextUrl);
 
-        //FIX necesito un await para saber cuando termine de hacer las 20
-        // response.results.forEach(pokemon => {
-        //     CreatePokemonCard(pokemon.url);
-        // });
         await CreatePokemonCards(response.results);
 
         const parent = document.getElementById("botones");
         const newButton = CreateBootstrapButton("Cargas mas", "getMore", parent);
         newButton.addEventListener("click", MoreButtonClick);
-    
 	} catch (error) {
 		console.log(error);
 	} 
@@ -54,12 +44,7 @@ async function MoreButtonClick(event){
         console.log(response);
 
         nextUrl =  response.next;
-        console.log(nextUrl);
 
-        //FIX necesito un await para saber cuando termine de hacer las 20
-        // response.results.forEach(pokemon => {
-        //     CreatePokemonCard(pokemon.url);
-        // });
         await CreatePokemonCards(response.results)
         event.target.removeAttribute("disabled");
     
@@ -69,8 +54,6 @@ async function MoreButtonClick(event){
 }
 
 async function CreatePokemonCards(pokemons){
-    console.log(pokemons);
-
     document.getElementById("resultado").innerHTML = "";
 
     pokemons.forEach(async (pokemon) => {
@@ -79,16 +62,12 @@ async function CreatePokemonCards(pokemons){
     });
 
     return new Promise((resolve, reject) => {
-        resolve(console.log("done"));
+        resolve("done");
     });
-    
-
 }
 
 function CreatePokemon(pokemon){
     let newPokemon = new Pokemon(pokemon.name, pokemon.sprites.front_default, pokemon.height, pokemon.weight, pokemon.types, pokemon.stats);
-
-    console.log(newPokemon);
 
     let card = CreatePokemonCard(newPokemon, "resultado");
     card.classList.add("col-2");
@@ -112,6 +91,5 @@ function DeleteButtonClick(event){
         document.getElementById("getMore").remove();
         nextUrl = first20;
         LoadButtonClick(event)
-        console.log("borrando");
     }
 }
