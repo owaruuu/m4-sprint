@@ -49,48 +49,50 @@ function CreatePokemon(pokemon){
 
     console.log(newPokemon);
 
-    CreatePokemonCard(newPokemon);
+    CreatePokemonCard(newPokemon,"resCard");
 }
 
-function CreatePokemonCard(pokemon){
+function CreatePokemonCard(pokemon,idContenedor){
+	
+	let contenedor=document.getElementById(idContenedor);
+		contenedor.innerHTML="";
+	let card = CreateElement("div", contenedor, "", ["card"]);
+	let imgCard = CreateElement("img", card, "", ["card-img-top"]);
+	let bodyCard = CreateElement("div", card, "", ["card-body"]);
+	let titleCard = CreateElement("h5", bodyCard, "", ["card-title","pokemon-name"]);
+	let sub1Card = CreateElement("h6", bodyCard, "", ["card-subtitle","mb-2","text-body-secondary","pokemon-height"]);
+	let sub2Card = CreateElement("h6", bodyCard, "", ["card-subtitle","mb-2","text-body-secondary","pokemon-weight"]);
+	let sub3Card = CreateElement("h6", bodyCard, "", ["card-subtitle","mb-2","text-body-secondary"]);
+	let listaCard = CreateElement("ul", bodyCard, "", ["list-group","list-group-flush","pokemon-types"]);
+
     console.log(pokemon);
-	console.log(document.querySelector(".card-img-top"));
-	document.querySelector(".card-img-top").src = pokemon.img;
-	document.querySelector(".pokemon-name").innerHTML = "Nombre: " + pokemon.name;
-	document.querySelector(".pokemon-height").innerHTML = "Altura: " + pokemon.height + " dm" ;
-	document.querySelector(".pokemon-weight").innerHTML = "Peso: " + pokemon.weight + " hg";
 
-	let typesDiv = document.querySelector(".pokemon-types");
-	typesDiv.innerHTML = "";
+	imgCard.src = pokemon.img;
+	titleCard.innerHTML = "Nombre: " + pokemon.name;
+	sub1Card.innerHTML = "Altura: " + pokemon.height + " dm" ;
+	sub2Card.innerHTML = "Peso: " + pokemon.weight + " hg";
 
-	let first = CreateElement("li", typesDiv, "Tipos: ");
-	first.classList.add("list-group-item","active");
+	listaCard.innerHTML = "";
+
+	let tituloLista = CreateElement("li", listaCard, "Tipos: ",["list-group-item","active"]);
 
 	pokemon.types.forEach(type => {
-		CreateElement("li", typesDiv, type.type.name, ["list-group-item"]);
+		CreateElement("li", listaCard, type.type.name, ["list-group-item"]);
 	});
 
 	const data = CreateData(pokemon.stats);
-	if(statsChart != undefined){
-		statsChart.destroy();
-	}
+	if(statsChart != undefined){statsChart.destroy();}
 	statsChart = CreateChart(data);
 
-	document.getElementById("resCard").addEventListener('click', ShowModal);
-}
+	card.addEventListener('click', ()=>{
+		const data = CreateData(pokemon.stats);
+		if(statsChart != undefined){statsChart.destroy();}
+		statsChart = CreateChart(data);
 
-function ShowModal(){
-	// const modal = document.getElementById('statsModal');  
-	// const modalTitle = modal.querySelector('.modal-title')
-	// const modalBody = modal.querySelector('.modal-body')
-
-	// modalTitle.textContent = "TITULO";
-	// modalBody.textContent = "CUERPO";
-
-	// const myModal = new bootstrap.Modal(modal);
-	// myModal.show();
-	modalStats.show();
-	// modal.show();
+		const modalTitle = modal.querySelector('.modal-title');
+		modalTitle.textContent = "Estadisticas de " + pokemon.name.toUpperCase();
+		modalStats.show();
+	});
 }
 
 // async function GetPokemon(url) {
